@@ -1,0 +1,13 @@
+<h2>Book or Say Hello</h2>
+<p class="muted">Tell us about your event and we’ll get back to you soon.</p>
+<%= form_with model: @inquiry, url: contact_path, class: "form" do |f| %>
+  <% if @inquiry.errors.any? %>
+    <p class="flash err"><%= @inquiry.errors.full_messages.to_sentence %></p>
+  <% end %>
+  <%= f.label :name, "Your name" %><%= f.text_field :name %>
+  <%= f.label :email %><%= f.email_field :email %>
+  <%= f.label :event_type, "Event type" %><%= f.select :event_type, Inquiry::TYPES %>
+  <%= f.label :event_date, "Event date" %><%= f.date_field :event_date %>
+  <%= f.label :message %><%= f.text_area :message, rows: 5 %>
+  <p><%= f.submit "Send Request", class: "btn" %></p>
+<% end %>

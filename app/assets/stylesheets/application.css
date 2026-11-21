@@ -1,10 +1,32 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+:root{--bg:#fbf6f0;--surface:#fff;--text:#3b2318;--muted:#7a5f50;--copper:#b86b45;--copper2:#8f4a2b;--line:#ead9cb;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#1c1210;--surface:#291a16;--text:#f5e8de;--muted:#c2a695;--copper:#d98c62;--line:#44302a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,sans-serif}
+a{color:var(--copper)}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav{max-width:960px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px;flex-wrap:wrap}
+.brand{font:700 18px 'Playfair Display',serif;text-decoration:none}
+nav div a{margin-left:16px;color:var(--text);text-decoration:none;font-weight:600;padding-bottom:3px;border-bottom:2px solid transparent}
+nav div a.on{border-color:var(--copper);color:var(--copper)}
+main{max-width:960px;margin:auto;padding:28px 20px 60px}
+.logo{background:#fff;border-radius:18px;padding:12px;max-width:560px;margin:0 auto 24px;box-shadow:0 6px 24px rgba(120,60,30,.18)}
+.logo img{width:100%;display:block}
+h1,h2,h3{font-family:'Playfair Display',serif;margin:0 0 .5em}
+h1{font-size:clamp(28px,6vw,44px);text-align:center;color:var(--copper)}
+h2{font-size:30px;color:var(--copper)}
+.tag{font:24px Pacifico,cursive;text-align:center;color:var(--muted);margin:0 0 24px}
+.muted{color:var(--muted)}.center{text-align:center}
+.btn,input[type=submit],button{display:inline-block;background:var(--copper2);color:#fff;padding:10px 22px;border-radius:999px;text-decoration:none;font-weight:600;border:0;font-size:16px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:36px 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{color:var(--copper);font-size:20px}.card p{margin:0;color:var(--muted)}
+.ev{display:flex;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.date{min-width:62px;text-align:center;background:var(--copper2);color:#fff;border-radius:10px;padding:6px 0;line-height:1.2}
+.date b{display:block;font-size:22px}.date span{font-size:12px;letter-spacing:.1em}
+.ev h3{margin:0;font-size:18px}.ev p{margin:0;color:var(--muted);font-size:14px}
+.form{max-width:560px}
+label{display:block;font-weight:600;margin:14px 0 4px}
+input:not([type=submit]),select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);font:inherit}
+.flash{background:var(--surface);border:1px solid var(--copper);border-radius:10px;padding:10px 14px}
+.flash.err{border-color:#c0392b}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:24px}

@@ -1,0 +1,10 @@
+<h2>Manage Schedule</h2>
+<p><%= link_to "+ Add event", new_admin_event_path, class: "btn" %> <%= link_to "View inquiries", admin_inquiries_path %></p>
+<% @events.each do |e| %>
+  <div class="ev">
+    <div class="date"><b><%= e.starts_at.day %></b><span><%= e.starts_at.strftime("%b").upcase %></span></div>
+    <div style="flex:1"><h3><%= e.title %></h3><p><%= e.venue %> · <%= e.starts_at.strftime("%Y, %-l:%M %p") %></p></div>
+    <%= link_to "Edit", edit_admin_event_path(e) %>
+    <%= button_to "Delete", admin_event_path(e), method: :delete, form: { data: { turbo_confirm: "Delete this event?" } } %>
+  </div>
+<% end %>

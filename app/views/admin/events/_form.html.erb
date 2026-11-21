@@ -1,0 +1,9 @@
+<%= form_with model: [:admin, @event], class: "form" do |f| %>
+  <% if @event.errors.any? %><p class="flash err"><%= @event.errors.full_messages.to_sentence %></p><% end %>
+  <%= f.label :title %><%= f.text_field :title %>
+  <%= f.label :venue %><%= f.text_field :venue %>
+  <%= f.label :starts_at, "Starts" %><%= f.datetime_field :starts_at %>
+  <%= f.label :ends_at, "Ends (optional)" %><%= f.datetime_field :ends_at %>
+  <%= f.label :notes %><%= f.text_area :notes, rows: 3 %>
+  <p><%= f.submit class: "btn" %> <%= link_to "Cancel", admin_events_path %></p>
+<% end %>

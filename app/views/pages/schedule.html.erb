@@ -1,0 +1,15 @@
+<h2>Upcoming Shows</h2>
+<p class="muted">Come sing, dance and say hello. Want us at your event? <%= link_to "Get in touch", contact_path %>.</p>
+<% if @events.empty? %>
+  <p class="muted">No shows posted right now. Check back soon!</p>
+<% end %>
+<% @events.each do |e| %>
+  <div class="ev">
+    <div class="date"><b><%= e.starts_at.day %></b><span><%= e.starts_at.strftime("%b").upcase %></span></div>
+    <div>
+      <h3><%= e.title %></h3>
+      <p><%= [e.venue.presence, [e.starts_at.strftime("%-l:%M %p"), e.ends_at&.strftime("%-l:%M %p")].compact.join(" – ")].compact.join(" · ") %></p>
+      <% if e.notes.present? %><p><%= e.notes %></p><% end %>
+    </div>
+  </div>
+<% end %>

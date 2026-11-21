@@ -1,0 +1,10 @@
+<h2>Inquiries</h2>
+<p><%= link_to "← Back to schedule", admin_root_path %></p>
+<% @inquiries.each do |i| %>
+  <div class="card" style="margin-bottom:12px">
+    <h3><%= i.name %> · <%= i.event_type %> <%= "· #{i.event_date}" if i.event_date %></h3>
+    <p><%= mail_to i.email %> · received <%= i.created_at.strftime("%b %-d, %-l:%M %p") %></p>
+    <p><%= simple_format h(i.message) %></p>
+    <%= button_to "Delete", admin_inquiry_path(i), method: :delete %>
+  </div>
+<% end %>
